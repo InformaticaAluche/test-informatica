@@ -2,78 +2,80 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-
-<!-- Optimización real para móviles y WhatsApp -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Test Informática</title>
 
 <style>
-
-/* 🔥 Tamaño base más pequeño */
 html {
     font-size: 15px;
-}
-
-.logo {
-    display: block;
-    margin: 10px auto 5px;
-    max-width: 180px;   /* Tamaño correcto en PC */
-    height: auto;
 }
 
 body {
     font-family: sans-serif;
     background: #FFF7ED;
     margin: 0;
-    padding: 0;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
 }
 
-/* 🔥 Ancho completo real */
+/* Tarjeta centrada con ancho máximo adaptable para PC y móvil */
 .card {
     background: #FFF7ED;
-    padding: 10px;
+    padding: 20px;
     border-radius: 8px;
-    width: 100vw;
+    width: 100%;
+    max-width: 600px; /* Evita que en PC se extienda demasiado */
     border: 1px solid #f0e0d2;
     box-sizing: border-box;
 }
 
-/* Banner en una sola línea */
-.banner {
+/* Cabecera centrada verticalmente */
+.header-container {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: 12px;
-    flex-wrap: nowrap;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
-/* Título responsive */
+.logo {
+    display: block;
+    max-width: 160px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
 .titulo-test {
     font-weight: bold;
-    font-size: 1.2rem;   /* Tamaño normal en PC */
-}
-
-/* Ajuste para móviles */
-@media (max-width: 600px) {
-    .titulo-test {
-        font-size: 4vw;   /* Tamaño fluido en móvil */
-    }
-
-    .logo {
-        max-width: 140px; /* Logo más pequeño en móvil */
-    }
+    font-size: 1.25rem;
+    color: #111;
+    margin-bottom: 4px;
 }
 
 .subtitle {
-    text-align: center;
-    font-size: 0.75rem;
-    margin-bottom: 20px;
-    color: #444;
+    font-size: 0.85rem;
+    color: #555;
     font-weight: bold;
+    letter-spacing: 0.5px;
 }
 
-/* 🔥 Botón más compacto */
+/* Ajustes fluidos para pantallas pequeñas */
+@media (max-width: 600px) {
+    .logo {
+        max-width: 130px;
+    }
+
+    .titulo-test {
+        font-size: 1.1rem;
+    }
+
+    .card {
+        padding: 12px;
+    }
+}
+
+/* Botón compacto */
 button {
     background: #007bff;
     color: white;
@@ -82,7 +84,8 @@ button {
     border-radius: 5px;
     cursor: pointer;
     width: 100%;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
+    font-weight: bold;
 }
 
 button:hover {
@@ -95,7 +98,6 @@ button:hover {
     padding-bottom: 10px;
 }
 
-/* 🔥 Respuestas más pequeñas */
 label {
     display: block;
     margin: 8px 0;
@@ -113,17 +115,15 @@ label {
 }
 
 .feedback {
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     margin-top: 5px;
 }
 
-/* 🔥 Resultado más compacto */
 #result {
     margin-top: 20px;
     text-align: center;
     font-size: 1rem;
 }
-
 </style>
 </head>
 
@@ -131,13 +131,12 @@ label {
 
 <div class="card">
 
-    <!-- 🔥 Banner corregido para PC y móvil -->
-    <div class="banner">
+    <!-- Cabecera ajustada y centrada -->
+    <div class="header-container">
         <img src="logo_.png" alt="Informática Q Aluche" class="logo">
-        <span class="titulo-test">Test de conocimientos de Ofimática</span>
+        <div class="titulo-test">Test de conocimientos de Ofimática</div>
+        <div class="subtitle">INFORMÁTICA Q ALUCHE</div>
     </div>
-
-    <div class="subtitle">INFORMÁTICA Q ALUCHE</div>
 
     <div id="quiz-container"></div>
 
@@ -148,26 +147,21 @@ label {
 
 <script>
 const questions = [
-
-{ q: "¿Qué es un navegador?", a: ["Un antivirus", "Un programa para acceder a páginas web", "Un editor de texto", "Un firewall"], correct: 1 },
-{ q: "¿Qué es el phishing?", a: ["Un ataque para saturar un servidor", "Un método para robar datos haciéndose pasar por una entidad legítima", "Un virus autorreplicable", "Un cifrado"], correct: 1 },
-{ q: "¿Qué protocolo se usa para enviar correo?", a: ["POP3", "SMTP", "IMAP", "FTP"], correct: 1 },
-{ q: "¿Qué campo permite enviar copia oculta?", a: ["CC", "CCO", "Para", "Responder a"], correct: 1 },
-{ q: "¿Qué es un archivo PDF?", a: ["Un archivo de imagen", "Un formato de documento portátil", "Un archivo ejecutable", "Un archivo comprimido"], correct: 1 },
-
-{ q: "¿Qué combinación guarda un documento en Word?", a: ["Ctrl + C", "Ctrl + S", "Ctrl + P", "Ctrl + X"], correct: 1 },
-{ q: "¿Qué opción permite cambiar el tipo de letra en Word?", a: ["Insertar", "Fuente", "Vista", "Revisar"], correct: 1 },
-{ q: "¿Qué es un salto de página?", a: ["Eliminar texto", "Cambiar fuente", "Pasar a una nueva página", "Insertar imagen"], correct: 2 },
-{ q: "¿Qué herramienta corrige errores ortográficos?", a: ["Diseño", "Revisar", "Insertar", "Archivo"], correct: 1 },
-
-{ q: "¿Qué es una celda en Excel?", a: ["Un gráfico", "Una intersección de fila y columna", "Una hoja", "Una fórmula"], correct: 1 },
-{ q: "¿Qué símbolo inicia una fórmula en Excel?", a: ["#", "=", "+", "$"], correct: 1 },
-{ q: "¿Qué función suma valores?", a: ["PROMEDIO", "SUMA", "CONTAR", "MAX"], correct: 1 },
-{ q: "¿Qué es una hoja de cálculo?", a: ["Documento de texto", "Presentación", "Tabla de datos", "Imagen"], correct: 2 },
-
-{ q: "¿Qué programa se usa para presentaciones?", a: ["Word", "Excel", "PowerPoint", "Access"], correct: 2 },
-{ q: "¿Qué es una diapositiva?", a: ["Una hoja de Excel", "Una página de presentación", "Un archivo", "Un gráfico"], correct: 1 }
-
+    { q: "¿Qué es un navegador?", a: ["Un antivirus", "Un programa para acceder a páginas web", "Un editor de texto", "Un firewall"], correct: 1 },
+    { q: "¿Qué es el phishing?", a: ["Un ataque para saturar un servidor", "Un método para robar datos haciéndose pasar por una entidad legítima", "Un virus autorreplicable", "Un cifrado"], correct: 1 },
+    { q: "¿Qué protocolo se usa para enviar correo?", a: ["POP3", "SMTP", "IMAP", "FTP"], correct: 1 },
+    { q: "¿Qué campo permite enviar copia oculta?", a: ["CC", "CCO", "Para", "Responder a"], correct: 1 },
+    { q: "¿Qué es un archivo PDF?", a: ["Un archivo de imagen", "Un formato de documento portátil", "Un archivo ejecutable", "Un archivo comprimido"], correct: 1 },
+    { q: "¿Qué combinación guarda un documento en Word?", a: ["Ctrl + C", "Ctrl + S", "Ctrl + P", "Ctrl + X"], correct: 1 },
+    { q: "¿Qué opción permite cambiar el tipo de letra en Word?", a: ["Insertar", "Fuente", "Vista", "Revisar"], correct: 1 },
+    { q: "¿Qué es un salto de página?", a: ["Eliminar texto", "Cambiar fuente", "Pasar a una nueva página", "Insertar imagen"], correct: 2 },
+    { q: "¿Qué herramienta corrige errores ortográficos?", a: ["Diseño", "Revisar", "Insertar", "Archivo"], correct: 1 },
+    { q: "¿Qué es una celda en Excel?", a: ["Un gráfico", "Una intersección de fila y columna", "Una hoja", "Una fórmula"], correct: 1 },
+    { q: "¿Qué símbolo inicia una fórmula en Excel?", a: ["#", "=", "+", "$"], correct: 1 },
+    { q: "¿Qué función suma valores?", a: ["PROMEDIO", "SUMA", "CONTAR", "MAX"], correct: 1 },
+    { q: "¿Qué es una hoja de cálculo?", a: ["Documento de texto", "Presentación", "Tabla de datos", "Imagen"], correct: 2 },
+    { q: "¿Qué programa se usa para presentaciones?", a: ["Word", "Excel", "PowerPoint", "Access"], correct: 2 },
+    { q: "¿Qué es una diapositiva?", a: ["Una hoja de Excel", "Una página de presentación", "Un archivo", "Un gráfico"], correct: 1 }
 ];
 
 let currentQuestions = [];
