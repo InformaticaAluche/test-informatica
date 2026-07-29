@@ -6,7 +6,7 @@
 <title>Test Informática</title>
 
 <style>
-/* Reset básico */
+/* Reset básico para evitar márgenes raros */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -22,23 +22,23 @@ body {
     background: #FFF7ED;
     padding: 15px;
     display: flex;
-    justify-content: center; /* Centra la tarjeta en la pantalla */
+    justify-content: center;
     align-items: flex-start;
     min-height: 100vh;
 }
 
-/* Tarjeta contenedora principal */
+/* Tarjeta centrada para Móvil y PC */
 .card {
     background: #FFF7ED;
     padding: 20px;
     border-radius: 8px;
     width: 100%;
-    max-width: 500px; /* Evita que se deforme a lo ancho */
+    max-width: 500px; /* Tamaño adecuado en PC */
     border: 1px solid #f0e0d2;
     margin: 0 auto;
 }
 
-/* Forzar cabecera centrada en columna */
+/* Cabecera centrada en vertical */
 .banner {
     display: flex !important;
     flex-direction: column !important;
@@ -46,6 +46,10 @@ body {
     justify-content: center !important;
     text-align: center !important;
     width: 100% !important;
+    
+    /* Línea divisoria debajo del subtítulo */
+    border-bottom: 2px solid #f0e0d2; 
+    padding-bottom: 15px;
     margin-bottom: 20px;
 }
 
@@ -64,18 +68,17 @@ body {
     text-align: center;
     display: block;
     width: 100%;
+    margin-bottom: 4px;
 }
 
 .subtitle {
     text-align: center;
     font-size: 0.8rem;
-    margin-top: 4px;
-    margin-bottom: 20px;
     color: #555;
     font-weight: bold;
 }
 
-/* Botón */
+/* Botón principal */
 button {
     background: #007bff;
     color: white;
@@ -92,7 +95,7 @@ button:hover {
     background: #0056b3;
 }
 
-/* Preguntas y respuestas */
+/* Preguntas y opciones */
 .question {
     margin-bottom: 20px;
     border-bottom: 1px solid #eee;
@@ -132,10 +135,10 @@ label {
 
 <div class="card">
 
-    <!-- Cabecera ajustada y centrada -->
-    <div class="header-container">
+    <!-- Cabecera organizada con la línea divisoria -->
+    <div class="banner">
         <img src="logo_.png" alt="Informática Q Aluche" class="logo">
-        <div class="titulo-test">Test de conocimientos de Ofimática</div>
+        <span class="titulo-test">Test de conocimientos de Ofimática</span>
         <div class="subtitle">INFORMÁTICA Q ALUCHE</div>
     </div>
 
