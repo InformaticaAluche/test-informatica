@@ -18,7 +18,7 @@ html {
 .logo {
     display: block;
     margin: 10px auto 5px;
-    max-width: 180px;   /* Más pequeño en PC */
+    max-width: 180px;   /* Tamaño correcto en PC */
     height: auto;
 }
 
@@ -39,11 +39,30 @@ body {
     box-sizing: border-box;
 }
 
-h2 {
-    text-align: center;
-    border-bottom: 2px solid #007bff;
-    padding-bottom: 10px;
-    margin-bottom: 5px;
+/* Banner en una sola línea */
+.banner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: nowrap;
+}
+
+/* Título responsive */
+.titulo-test {
+    font-weight: bold;
+    font-size: 1.2rem;   /* Tamaño normal en PC */
+}
+
+/* Ajuste para móviles */
+@media (max-width: 600px) {
+    .titulo-test {
+        font-size: 4vw;   /* Tamaño fluido en móvil */
+    }
+
+    .logo {
+        max-width: 140px; /* Logo más pequeño en móvil */
+    }
 }
 
 .subtitle {
@@ -105,19 +124,6 @@ label {
     font-size: 1rem;
 }
 
-/* 🔧 Título responsive real */
-.titulo-test {
-    font-weight: bold;
-    font-size: 4vw;      /* Tamaño fluido para móvil */
-}
-
-/* 🔧 Ajuste para pantallas grandes */
-@media (min-width: 600px) {
-    .titulo-test {
-        font-size: 1.4rem;   /* Tamaño normal en PC */
-    }
-}
-
 </style>
 </head>
 
@@ -125,14 +131,10 @@ label {
 
 <div class="card">
 
-    <!-- 🔥 Logo + título en una sola línea, responsive para móvil -->
-    <div style="display:flex; align-items:center; white-space:nowrap;">
-        <img src="logo_.png" alt="Informática Q Aluche" class="logo"
-             style="width:35vw; height:auto; max-width:180px; margin-right:10px;">
-        
-        <span class="titulo-test">
-            Test de conocimientos de Ofimática
-        </span>
+    <!-- 🔥 Banner corregido para PC y móvil -->
+    <div class="banner">
+        <img src="logo_.png" alt="Informática Q Aluche" class="logo">
+        <span class="titulo-test">Test de conocimientos de Ofimática</span>
     </div>
 
     <div class="subtitle">INFORMÁTICA Q ALUCHE</div>
