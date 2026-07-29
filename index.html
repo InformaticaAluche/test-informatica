@@ -6,76 +6,76 @@
 <title>Test Informática</title>
 
 <style>
+/* Reset básico */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 html {
     font-size: 15px;
 }
 
 body {
-    font-family: sans-serif;
+    font-family: system-ui, -apple-system, sans-serif;
     background: #FFF7ED;
-    margin: 0;
     padding: 15px;
     display: flex;
-    justify-content: center;
+    justify-content: center; /* Centra la tarjeta en la pantalla */
+    align-items: flex-start;
+    min-height: 100vh;
 }
 
-/* Tarjeta centrada con ancho máximo adaptable para PC y móvil */
+/* Tarjeta contenedora principal */
 .card {
     background: #FFF7ED;
     padding: 20px;
     border-radius: 8px;
     width: 100%;
-    max-width: 600px; /* Evita que en PC se extienda demasiado */
+    max-width: 500px; /* Evita que se deforme a lo ancho */
     border: 1px solid #f0e0d2;
-    box-sizing: border-box;
+    margin: 0 auto;
 }
 
-/* Cabecera centrada verticalmente */
-.header-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+/* Forzar cabecera centrada en columna */
+.banner {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    width: 100% !important;
     margin-bottom: 20px;
 }
 
 .logo {
-    display: block;
+    display: block !important;
     max-width: 160px;
+    width: 100%;
     height: auto;
-    margin-bottom: 10px;
+    margin: 0 auto 10px auto !important;
 }
 
 .titulo-test {
     font-weight: bold;
-    font-size: 1.25rem;
+    font-size: 1.2rem;
     color: #111;
-    margin-bottom: 4px;
+    text-align: center;
+    display: block;
+    width: 100%;
 }
 
 .subtitle {
-    font-size: 0.85rem;
+    text-align: center;
+    font-size: 0.8rem;
+    margin-top: 4px;
+    margin-bottom: 20px;
     color: #555;
     font-weight: bold;
-    letter-spacing: 0.5px;
 }
 
-/* Ajustes fluidos para pantallas pequeñas */
-@media (max-width: 600px) {
-    .logo {
-        max-width: 130px;
-    }
-
-    .titulo-test {
-        font-size: 1.1rem;
-    }
-
-    .card {
-        padding: 12px;
-    }
-}
-
-/* Botón compacto */
+/* Botón */
 button {
     background: #007bff;
     color: white;
@@ -92,6 +92,7 @@ button:hover {
     background: #0056b3;
 }
 
+/* Preguntas y respuestas */
 .question {
     margin-bottom: 20px;
     border-bottom: 1px solid #eee;
