@@ -18,7 +18,7 @@ html {
 .logo {
     display: block;
     margin: 10px auto 5px;
-    max-width: 220px;
+    max-width: 180px;   /* Más pequeño en PC */
     height: auto;
 }
 
@@ -105,6 +105,19 @@ label {
     font-size: 1rem;
 }
 
+/* 🔧 Título responsive real */
+.titulo-test {
+    font-weight: bold;
+    font-size: 4vw;      /* Tamaño fluido para móvil */
+}
+
+/* 🔧 Ajuste para pantallas grandes */
+@media (min-width: 600px) {
+    .titulo-test {
+        font-size: 1.4rem;   /* Tamaño normal en PC */
+    }
+}
+
 </style>
 </head>
 
@@ -115,10 +128,10 @@ label {
     <!-- 🔥 Logo + título en una sola línea, responsive para móvil -->
     <div style="display:flex; align-items:center; white-space:nowrap;">
         <img src="logo_.png" alt="Informática Q Aluche" class="logo"
-             style="width:40vw; height:auto; max-width:250px; margin-right:12px;">
+             style="width:35vw; height:auto; max-width:180px; margin-right:10px;">
         
-        <span style="font-size:5vw; font-weight:bold;">
-            Test de conocimientos básicos de Informática
+        <span class="titulo-test">
+            Test de conocimientos de Ofimática
         </span>
     </div>
 
