@@ -111,11 +111,19 @@ label {
 <body>
 
 <div class="card">
-    
-    <img src="logo_.png" alt="Informática Q Aluche" class="logo">
-    <h2>Test de conocimientos básicos de Informática</h2>
+
+    <!-- 🔥 Logo + título en una sola línea, responsive para móvil -->
+    <div style="display:flex; align-items:center; white-space:nowrap;">
+        <img src="logo_.png" alt="Informática Q Aluche" class="logo"
+             style="width:40vw; height:auto; max-width:250px; margin-right:12px;">
+        
+        <span style="font-size:5vw; font-weight:bold;">
+            Test de conocimientos básicos de Informática
+        </span>
+    </div>
+
     <div class="subtitle">INFORMÁTICA Q ALUCHE</div>
-    
+
     <div id="quiz-container"></div>
 
     <button id="btn-action">Finalizar Test</button>
